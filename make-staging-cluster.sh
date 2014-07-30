@@ -27,9 +27,11 @@ if [ ! -e env ]; then
     exit 1
 fi
 
-mkdir -p clusters
-touch clusters/j-${BUILD_NUMBER}.json
+source env/jenkinsrc
 
-./mkcluster -c j-${BUILD_NUMBER} -p simple
+mkdir -p clusters
+touch clusters/j${BUILD_NUMBER}.json
+
+./mkcluster -c j${BUILD_NUMBER} -p simple
 
 popd
