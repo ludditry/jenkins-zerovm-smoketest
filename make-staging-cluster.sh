@@ -4,11 +4,12 @@ set -e
 
 if [ ! -d /var/lib/jenkins/ansible-zwift ]; then
     pushd /var/lib/jenkins
-    git checkout http://github.com/ludditry/ansible-zwift
+    git clone http://github.com/ludditry/ansible-zwift
     popd
 fi
 
 pushd /var/lib/jenkins/ansible-swift
+
 git reset --hard
 git checkout master
 git pull
