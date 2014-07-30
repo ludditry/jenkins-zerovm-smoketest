@@ -8,7 +8,7 @@ if [ ! -d /var/lib/jenkins/ansible-zwift ]; then
     popd
 fi
 
-pushd /var/lib/jenkins/ansible-swift
+pushd /var/lib/jenkins/ansible-zwift
 
 git reset --hard
 git checkout master
@@ -23,7 +23,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 if [ ! -e env ]; then
-    echo "drop a jenkinsrc in /var/lib/jenkins/ansible-swift/env"
+    echo "drop a jenkinsrc in /var/lib/jenkins/ansible-zwift/env"
     exit 1
 fi
 
