@@ -31,6 +31,9 @@ if [ ! -e env ]; then
     exit 1
 fi
 
+mkdir -p roles/base/files
+cp ${WORKSPACE}/keys/* roles/base/files
+
 set +x
 source env/jenkinsrc
 set -x
