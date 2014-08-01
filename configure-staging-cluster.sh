@@ -3,24 +3,13 @@
 set -e
 set -x
 
-CLUSTER_ID=${CLUSTER_ID:-JOB_ID}
+# activate and pushd to ansible checkout
+source common.sh
+
 SWIFT_TYPE=${SWIFT_VENV_CLASS:-testing}
 SWIFT_VERSION=${SWIFT_BUNDLE_VERSION:-00049}
 ZVM_VERSION=${00056}
 WORKSPACE=${WORKSPACE:-.}
-
-[ -d /var/lib/jenkins/ansible-zwift ] || exit 1
-pushd /var/lib/jenkins/ansible-zwift
-
-[ -d venv ] || exit 1
-
-source venv/bin/activate
-
-[ -e env/jenkinsrc ] || exit 1
-
-set +x
-source env/jenkinsrc
-set -x
 
 if [ ! -e clusters/j${CLUSTER_ID}.json ]; then
     echo "cluster j${CLUSTER_ID} does not exist"
