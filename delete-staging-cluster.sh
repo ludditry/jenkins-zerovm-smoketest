@@ -6,8 +6,8 @@ set -x
 CLUSTER_ID=${CLUSTER_ID:-JOB_ID}
 
 
-[ -d /var/lib/jenkins/ansible-swift ] || exit 1
-pushd /var/lib/jenkins/ansible-swift
+[ -d /var/lib/jenkins/ansible-zwift ] || exit 1
+pushd /var/lib/jenkins/ansible-zwift
 
 [ -d venv] || exit 1
 
