@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e
+set -x
+
 
 if [ ! -d /var/lib/jenkins/ansible-zwift ]; then
     pushd /var/lib/jenkins
@@ -27,7 +29,9 @@ if [ ! -e env ]; then
     exit 1
 fi
 
+set +x
 source env/jenkinsrc
+set -x
 
 mkdir -p clusters
 touch clusters/j${BUILD_NUMBER}.json
