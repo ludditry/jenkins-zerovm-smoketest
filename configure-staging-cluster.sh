@@ -28,9 +28,11 @@ if [ ! -e clusters/j${CLUSTER_ID}.json ]; then
 fi
 
 cp ${WORKSPACE}/job.template clusters/j${CLUSTER_ID}.json
+
 sed -i clusters/j${CLUSTER_ID}.json -e "#@SWIFT_TYPE@#${SWIFT_TYPE}#"
 sed -i clusters/j${CLUSTER_ID}.json -e "#@SWIFT_VERSION@#$SWIFT_VERSION#"
 sed -i clusters/j${CLUSTER_ID}.json -e "#@ZVM_VERSION@#${ZVM_VERSION}#"
+sed -i clusters/j${CLUSTER_ID}.json -e "#@PREFIX@#j${CLUSTER_ID}#"
 
 ./run -c j${CLUSTER_ID} -e @clusters/j${CLUSTER_ID}.json ./configure.yml
 

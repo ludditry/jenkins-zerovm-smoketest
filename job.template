@@ -1,3 +1,6 @@
+prefix: "@PREFIX@"
+cluster_confirm: "@PREFIX@"
+
 swift_manage_rings: true
 swift_manage_disks: true
 
