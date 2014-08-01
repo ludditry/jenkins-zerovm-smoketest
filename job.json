@@ -1,0 +1,27 @@
+swift_manage_rings: true
+swift_manage_disks: true
+
+swift_deployment_method: source
+zerovm_deployment_method: source
+
+swift_part_power: 16
+swift_replicas: 3
+swift_min_part_hours: 1
+
+swift_source_deploy_site: "http://zwift-ci.zerovm.org/@SWIFT_TYPE@"
+swift_source_deploy_version: "swift-@SWIFT_VERSION@"
+
+zerovm_source_deploy_site: "http://zwift-ci.zerovm.org/cbundles"
+zerovm_source_deploy_flavor: "zvm2-zpipes"
+zerovm_source_deploy_version: "@ZVM_VERSION@"
+
+# network style
+swift_zerovm_network_type: opaque
+
+zwift_ui_repo: https://github.com/ludditry/zwift-ui
+zwift_ui_version: zebra
+zwift_ui_docroot: /opt/zwift-ui
+
+zwift_daemons: null
+swift_zerovm_objectquery_debug: true
+swift_zbroker_client_timeout: 300000
