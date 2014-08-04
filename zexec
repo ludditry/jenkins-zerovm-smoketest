@@ -15,7 +15,8 @@ def get_url_and_token():
         sys.exit(1)
 
     res = requests.get(auth, headers={'x-storage-user': user,
-                                      'x-storage-pass': key})
+                                      'x-storage-pass': key},
+                       verify=False)
 
     return(res.headers.get('x-storage-url', None),
            res.headers.get('x-auth-token', None))
@@ -28,7 +29,8 @@ def zebra_execute(endpoint, token, manifest):
             'X-Auth-Token': token,
             'Content-Type': 'application/json',
             'X-ZeroVM-Execute': '1.0'},
-        data=manifest)
+        data=manifest,
+        verify=False)
 
 
 def get_object(endpoint, token, container, object):
@@ -37,7 +39,8 @@ def get_object(endpoint, token, container, object):
         headers={'X-Auth-Token': token})
 
     if resp.status_code != 200:
-        sys.stderr.write('Result code %d getting json file' % resp.result_code)
+        sys.stderr.write('Result code %d getting json file' % resp.status_code)
+        sys.exit(1)
 
     return resp.content
 
@@ -61,5 +64,10 @@ else:
     usage()
 
 resp = zebra_execute(url, token, json_file)
+if resp.status_code != 200:
+    print "result code: %d" % resp.status_code
+    print resp.content
+    sys.exit(1)
 
+print "exec: success"
 print resp.content

@@ -1,15 +1,15 @@
 [
     {
         "name": "mapper",
-        "exec" {
-            "path": "file://python:python" }
+        "exec": {
+            "path": "file://python:python" },
         "devices": [
             { "name": "stdin",
               "path": "swift://./scripts/simple_mapper.py" },
             { "name": "input",
               "path": "swift://./data/*.txt" },
-            { "name": "python" }]
-        "connect": "reducer"
+            { "name": "python" }],
+        "connect": [ "reducer" ]
     },
     {
         "name": "reducer",
