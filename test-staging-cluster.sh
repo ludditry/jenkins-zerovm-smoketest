@@ -18,4 +18,6 @@ for d in *; do
     pushd ${d}
     swift upload $(basename ${d}) *
     popd
+done
+
 popd
