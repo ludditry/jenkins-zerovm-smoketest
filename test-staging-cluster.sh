@@ -20,6 +20,8 @@ set +x
 source env/j${CLUSTER_ID}-swift.env
 set -x
 
+popd
+
 # upload test data
 pushd ${WORKSPACE}/scaffold
 for d in *; do
@@ -27,8 +29,9 @@ for d in *; do
     swift --insecure upload $(basename ${d}) *
     popd
 done
-
 popd
+
+./zexec scripts simple_map_reduce.json
 
 # if we haven't died by now, we can mark these as tested.
 echo ${ZVM_VERSION} > /var/www/cbundles/${ZVM_TYPE}/tested-version
