@@ -24,5 +24,6 @@ sed -i clusters/j${CLUSTER_ID}.json -e "s#@ZVM_VERSION@#${ZVM_VERSION}#"
 sed -i clusters/j${CLUSTER_ID}.json -e "s#@PREFIX@#j${CLUSTER_ID}#"
 
 ./run -c j${CLUSTER_ID} -e @clusters/j${CLUSTER_ID}.json ./configure.yml
+./run -c j${CLUSTER_ID} -e @clusters/j${CLUSTER_ID}.json ./oneshot.yml
 
 popd
