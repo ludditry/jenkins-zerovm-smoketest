@@ -37,3 +37,15 @@ cp ${WORKSPACE}/keys/* roles/base/files
 set +x
 source env/jenkinsrc
 set -x
+
+SWIFT_TYPE=${SWIFT_TYPE:-testing}
+SWIFT_VERSION=${SWIFT_VERSION:-00049}
+ZVM_VERSION=${ZVM_VERSION:-00056}
+
+if [ "${SWIFT_VERSION}" == "AUTO" ]; then
+    SWIFT_VERSION=$(cat /var/www/${SWIFT_TYPE}/snapshot-version)
+fi
+
+if [ "${ZVM_VERSION}" == "AUTO" ]; then
+    ZVM_VERSION=$(cat /var/www/cbundles/${ZVM_TYPE}/snapshot-version)
+fi

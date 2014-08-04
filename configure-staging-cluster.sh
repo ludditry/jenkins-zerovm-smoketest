@@ -6,9 +6,6 @@ set -x
 # activate and pushd to ansible checkout
 source common.sh
 
-SWIFT_TYPE=${SWIFT_TYPE:-testing}
-SWIFT_VERSION=${SWIFT_VERSION:-00049}
-ZVM_VERSION=${ZVM_VERSION:-00056}
 WORKSPACE=${WORKSPACE:-.}
 
 if [ ! -e clusters/j${CLUSTER_ID}.json ]; then

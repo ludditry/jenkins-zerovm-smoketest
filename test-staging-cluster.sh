@@ -5,10 +5,6 @@ set -x
 
 source common.sh
 
-SWIFT_TYPE=${SWIFT_TYPE:-testing}
-SWIFT_VERSION=${SWIFT_VERSION:-00049}
-ZVM_TYPE=${ZVM_TYPE:-zvm2-zpipes}
-ZVM_VERSION=${ZVM_VERSION:-00056}
 WORKSPACE=${WORKSPACE:-.}
 
 pip install python-swiftclient
