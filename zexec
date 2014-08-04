@@ -36,7 +36,8 @@ def zebra_execute(endpoint, token, manifest):
 def get_object(endpoint, token, container, object):
     resp = requests.get(
         "%s/%s/%s" % (endpoint, container, object),
-        headers={'X-Auth-Token': token})
+        headers={'X-Auth-Token': token},
+        verify=False)
 
     if resp.status_code != 200:
         sys.stderr.write('Result code %d getting json file' % resp.status_code)
