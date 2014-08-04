@@ -10,8 +10,9 @@ if [ ! -e clusters/j${CLUSTER_ID}.json ]; then
     exit 1
 fi
 
-rm clusters/j${CLUSTER_ID}.json
-
 ./rmcluster -c j${CLUSTER_ID}
+
+rm -f clusters/j${CLUSTER_ID}.json
+rm -f clusters/j${CLUSTER_ID}-swift.env
 
 popd
