@@ -16,7 +16,7 @@ set -x
 pushd ${WORKSPACE}/scaffold
 for d in *; do
     pushd ${d}
-    swift upload $(basename ${d}) *
+    swift --insecure upload $(basename ${d}) *
     popd
 done
 
