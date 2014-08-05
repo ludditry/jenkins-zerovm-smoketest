@@ -28,3 +28,7 @@ zwift_ui_docroot: /opt/zwift-ui
 zwift_daemons: null
 swift_zerovm_objectquery_debug: true
 swift_zbroker_client_timeout: 300000
+
+zwift_ui_repo: https://github.com/ludditry/zwift-ui
+zwift_ui_version: zebra
+zwift_ui_docroot: /opt/zwift-ui
