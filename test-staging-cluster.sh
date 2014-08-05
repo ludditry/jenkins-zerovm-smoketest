@@ -27,7 +27,7 @@ for d in *; do
 done
 popd
 
-./zexec scripts simple_map_reduce.json
+[ $(./zexec scripts simple_map_reduce.json) == 'Ok' ]
 
 # if we haven't died by now, we can mark these as tested.
 echo ${ZVM_VERSION} > /var/www/cbundles/${ZVM_TYPE}/tested-version
